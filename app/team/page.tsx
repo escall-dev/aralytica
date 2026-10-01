@@ -35,7 +35,7 @@ export default async function TeamPage() {
       />
 
       {/* Leadership Section */}
-      <section className="py-20 sm:py-24 bg-white border-b border-[#e5e7eb]">
+      <section className="py-20 sm:py-24 bg-background border-b border-border">
         <Container>
           <SectionHeading
             eyebrow="Technical Leadership"

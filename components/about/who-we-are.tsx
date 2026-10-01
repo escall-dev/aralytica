@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function WhoWeAre() {
   return (
-    <section className="py-20 sm:py-24 bg-white border-b border-[#e5e7eb]">
+    <section className="py-20 sm:py-24 bg-card border-b border-border transition-colors duration-200">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-7 space-y-6">
@@ -14,11 +14,11 @@ export function WhoWeAre() {
               title="Evidence that Informs. Insights that Improve."
               className="mx-0"
             />
-            <div className="space-y-4 text-base text-[#5f5f5f] leading-relaxed">
+            <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
               <p>
-                <strong>ARALytica</strong> is a research, monitoring,
-                evaluation, and data analytics firm that helps organizations
-                turn evidence into practical action.
+                <strong className="text-foreground">ARALytica</strong> is a
+                research, monitoring, evaluation, and data analytics firm that
+                helps organizations turn evidence into practical action.
               </p>
               <p>
                 We work with government agencies, development partners, civil
@@ -29,7 +29,7 @@ export function WhoWeAre() {
               </p>
               <p>
                 Our foundation is rooted in the Filipino word{" "}
-                <strong className="text-[#191919]">“Aral,”</strong> meaning
+                <strong className="text-foreground">“Aral,”</strong> meaning
                 study, disciplined learning, and thoughtful reflection. It
                 embodies our conviction that durable public institutions,
                 resilient social systems, and effective development outcomes are
@@ -39,9 +39,9 @@ export function WhoWeAre() {
           </div>
 
           <div className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-md p-8 rounded-2xl bg-[#fafafa] border border-[#e5e7eb] shadow-xs space-y-6">
-              <div className="flex items-center gap-3 pb-4 border-b border-[#e5e7eb]">
-                <div className="p-2 rounded-lg bg-[#f5edff]">
+            <div className="w-full max-w-md p-8 rounded-2xl bg-background border border-border shadow-xs space-y-6">
+              <div className="flex items-center gap-3 pb-4 border-b border-border">
+                <div className="p-2 rounded-lg bg-white border border-border/50 shadow-xs">
                   <Image
                     src="/logo/Aralytica-Logo.png"
                     alt="ARALytica Emblem"
@@ -51,33 +51,33 @@ export function WhoWeAre() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#191919]">
+                  <h3 className="text-base font-bold text-foreground">
                     ARALytica
                   </h3>
-                  <p className="text-xs text-[#5f5f5f]">Core Mandate</p>
+                  <p className="text-xs text-muted-foreground">Core Mandate</p>
                 </div>
               </div>
 
-              <blockquote className="text-sm italic font-serif text-[#191919] leading-relaxed border-l-2 border-[#650dd4] pl-4">
+              <blockquote className="text-sm italic font-serif text-foreground leading-relaxed border-l-2 border-primary pl-4">
                 &ldquo;Our approach combines methodological rigor, contextual
                 understanding, and clear communication to make evidence useful
                 and actionable.&rdquo;
               </blockquote>
 
               <div className="pt-2 grid grid-cols-2 gap-3 text-xs">
-                <div className="p-3 rounded-lg bg-white border border-[#e5e7eb]">
-                  <span className="font-bold text-[#191919] block mb-1">
+                <div className="p-3 rounded-lg bg-card border border-border">
+                  <span className="font-bold text-foreground block mb-1">
                     Sectors
                   </span>
-                  <span className="text-[#5f5f5f]">
+                  <span className="text-muted-foreground">
                     Education, Governance, Public Programs
                   </span>
                 </div>
-                <div className="p-3 rounded-lg bg-white border border-[#e5e7eb]">
-                  <span className="font-bold text-[#191919] block mb-1">
+                <div className="p-3 rounded-lg bg-card border border-border">
+                  <span className="font-bold text-foreground block mb-1">
                     Partners
                   </span>
-                  <span className="text-[#5f5f5f]">
+                  <span className="text-muted-foreground">
                     Government, Multilaterals, Civil Society
                   </span>
                 </div>

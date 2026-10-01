@@ -20,15 +20,15 @@ export function PageHeader({
   return (
     <section
       className={cn(
-        "relative overflow-hidden bg-gradient-to-b from-white via-[#fafafa] to-[#f5edff]/30 py-16 sm:py-20 lg:py-24 border-b border-[#e5e7eb]",
+        "relative overflow-hidden bg-gradient-to-b from-card via-background to-accent/25 py-16 sm:py-20 lg:py-24 border-b border-border transition-colors duration-200",
         className
       )}
     >
       {/* Subtle analytical grid texture */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.035]"
+        className="absolute inset-0 pointer-events-none opacity-[0.035] dark:opacity-[0.05]"
         style={{
-          backgroundImage: `linear-gradient(to right, #191919 1px, transparent 1px), linear-gradient(to bottom, #191919 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
           backgroundSize: "48px 48px",
         }}
         aria-hidden="true"
@@ -37,15 +37,15 @@ export function PageHeader({
       <Container className="relative">
         <div className="max-w-3xl space-y-4">
           {eyebrow && (
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f5edff] border border-[#650dd4]/20 text-xs font-semibold tracking-wider uppercase text-[#650dd4]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent border border-primary/20 text-xs font-semibold tracking-wider uppercase text-accent-foreground">
               <span>{eyebrow}</span>
             </div>
           )}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#191919] tracking-tight leading-[1.15]">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight leading-[1.15]">
             {title}
           </h1>
           {description && (
-            <p className="text-base sm:text-lg text-[#5f5f5f] leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               {description}
             </p>
           )}

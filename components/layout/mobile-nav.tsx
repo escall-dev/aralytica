@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { X, ArrowRight } from "lucide-react";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { cn } from "@/lib/utils";
 
 interface NavLink {
@@ -48,7 +49,7 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/40 backdrop-blur-xs transition-opacity animate-in fade-in duration-200"
+        className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity animate-in fade-in duration-200"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -56,23 +57,23 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
       {/* Drawer */}
       <div
         id="mobile-navigation"
-        className="fixed inset-y-0 right-0 w-full max-w-xs bg-white shadow-xl flex flex-col z-10 animate-in slide-in-from-right duration-250 ease-out border-l border-gray-100"
+        className="fixed inset-y-0 right-0 w-full max-w-xs bg-card text-foreground shadow-2xl flex flex-col z-10 animate-in slide-in-from-right duration-250 ease-out border-l border-border"
       >
-        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-          <span className="text-sm font-semibold tracking-wider uppercase text-[#650dd4]">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-border">
+          <span className="text-sm font-semibold tracking-wider uppercase text-primary">
             Navigation
           </span>
           <button
             type="button"
             onClick={onClose}
-            className="p-2 -mr-2 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-100 focus-visible:outline-[#650dd4]"
+            className="p-2 -mr-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted focus-visible:outline-primary transition-colors cursor-pointer"
             aria-label="Close menu"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        <nav className="flex-1 px-6 py-6 space-y-1 overflow-y-auto">
+        <nav className="flex-1 px-6 py-6 space-y-1.5 overflow-y-auto">
           {links.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -81,31 +82,32 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
                 href={link.href}
                 onClick={onClose}
                 className={cn(
-                  "flex items-center justify-between px-3 py-3 rounded-lg text-base font-medium transition-colors",
+                  "flex items-center justify-between px-3.5 py-3 rounded-xl text-base font-medium transition-colors",
                   isActive
-                    ? "bg-[#f5edff] text-[#650dd4] font-semibold"
-                    : "text-[#191919] hover:bg-gray-50 hover:text-[#650dd4]"
+                    ? "bg-accent text-accent-foreground font-semibold"
+                    : "text-foreground hover:bg-muted hover:text-primary"
                 )}
               >
                 <span>{link.label}</span>
                 {isActive && (
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#650dd4]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                 )}
               </Link>
             );
           })}
         </nav>
 
-        <div className="p-6 border-t border-gray-100 space-y-3">
+        <div className="p-6 border-t border-border space-y-3 bg-card">
+          <ThemeToggle variant="mobile" />
           <Link
             href="/contact"
             onClick={onClose}
-            className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-[#650dd4] px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#520ab0] transition-colors focus-visible:outline-[#650dd4]"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary-hover transition-colors focus-visible:outline-primary"
           >
             <span>Get in Touch</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <p className="text-center text-xs text-gray-400">
+          <p className="text-center text-xs text-muted-foreground">
             Evidence. Insight. Impact.
           </p>
         </div>

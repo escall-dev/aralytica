@@ -13,9 +13,9 @@ export function Badge({
   className,
 }: BadgeProps) {
   const variantStyles = {
-    primary: "bg-[#f5edff] text-[#650dd4] border border-[#650dd4]/20",
-    neutral: "bg-gray-100 text-gray-700 border border-gray-200",
-    outline: "bg-transparent text-[#650dd4] border border-[#650dd4]",
+    primary: "bg-accent text-accent-foreground border border-primary/20",
+    neutral: "bg-muted text-muted-foreground border border-border",
+    outline: "bg-transparent text-primary border border-primary/40",
   };
 
   return (

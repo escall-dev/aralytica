@@ -61,7 +61,7 @@ export function PublicationsRepository({
   const hasPublications = items.length > 0;
 
   return (
-    <section className="py-20 sm:py-24 bg-[#fafafa] border-b border-[#e5e7eb]">
+    <section className="py-20 sm:py-24 bg-background border-b border-border transition-colors duration-200">
       <Container>
         <SectionHeading
           eyebrow="Working Papers & Reports"
@@ -70,8 +70,8 @@ export function PublicationsRepository({
         />
 
         {/* Repository Filter Bar (Ready for CMS / Publication indexing) */}
-        <div className="mt-12 flex flex-wrap items-center gap-2 pb-8 border-b border-[#e5e7eb]">
-          <span className="text-xs font-mono uppercase tracking-wider text-gray-500 mr-2">
+        <div className="mt-12 flex flex-wrap items-center gap-2 pb-8 border-b border-border">
+          <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground mr-2">
             Filter by:
           </span>
           {DOCUMENT_TYPES.map((type) => {
@@ -83,8 +83,8 @@ export function PublicationsRepository({
                 onClick={() => setSelectedType(type)}
                 className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${
                   isActive
-                    ? "bg-[#650dd4] text-white font-semibold shadow-xs"
-                    : "bg-white border border-[#e5e7eb] text-gray-700 hover:bg-gray-50"
+                    ? "bg-primary text-primary-foreground font-semibold shadow-xs"
+                    : "bg-card border border-border text-foreground hover:bg-muted"
                 }`}
               >
                 {type}
@@ -103,15 +103,15 @@ export function PublicationsRepository({
                 ))}
               </div>
             ) : (
-              <div className="text-center py-12 p-8 rounded-2xl bg-white border border-[#e5e7eb]">
-                <p className="text-sm text-[#5f5f5f]">
+              <div className="text-center py-12 p-8 rounded-2xl bg-card border border-border">
+                <p className="text-sm text-muted-foreground">
                   No publications currently cataloged under &ldquo;
                   {selectedType}&rdquo;.
                 </p>
                 <button
                   type="button"
                   onClick={() => setSelectedType("All Document Types")}
-                  className="mt-3 text-xs font-semibold text-[#650dd4] hover:underline"
+                  className="mt-3 text-xs font-semibold text-primary hover:underline cursor-pointer"
                 >
                   View all publications
                 </button>
@@ -120,22 +120,22 @@ export function PublicationsRepository({
           ) : (
             <div className="space-y-12">
               {/* Intentional Repository Status Banner */}
-              <div className="max-w-3xl mx-auto p-8 sm:p-12 rounded-3xl bg-white border border-[#e5e7eb] text-center shadow-xs space-y-4">
-                <div className="mx-auto flex items-center justify-center h-14 w-14 rounded-2xl bg-[#f5edff] text-[#650dd4]">
+              <div className="max-w-3xl mx-auto p-8 sm:p-12 rounded-3xl bg-card border border-border text-center shadow-xs space-y-4">
+                <div className="mx-auto flex items-center justify-center h-14 w-14 rounded-2xl bg-accent text-primary">
                   <BookOpen className="h-7 w-7" />
                 </div>
-                <h3 className="text-2xl font-serif font-bold text-[#191919]">
+                <h3 className="text-2xl font-serif font-bold text-foreground">
                   Institutional Publication Archive
                 </h3>
-                <p className="text-base text-[#5f5f5f] leading-relaxed max-w-xl mx-auto">
+                <p className="text-base text-muted-foreground leading-relaxed max-w-xl mx-auto">
                   ARALytica&apos;s working papers, policy notes, and technical
                   evaluation reports will be cataloged and made accessible here
                   as they complete formal peer review and dissemination
                   clearance.
                 </p>
                 <div className="pt-2">
-                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-50 border border-gray-200 text-xs text-gray-600 font-mono">
-                    <span className="h-2 w-2 rounded-full bg-[#650dd4]" />
+                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-muted border border-border text-xs text-muted-foreground font-mono">
+                    <span className="h-2 w-2 rounded-full bg-primary" />
                     <span>
                       Cataloging in progress • Direct inquiries welcome via
                       contact
@@ -151,15 +151,15 @@ export function PublicationsRepository({
                   return (
                     <div
                       key={std.title}
-                      className="p-6 rounded-2xl bg-white border border-[#e5e7eb] shadow-xs flex flex-col items-start"
+                      className="p-6 rounded-2xl bg-card border border-border shadow-xs flex flex-col items-start"
                     >
-                      <div className="p-2.5 rounded-lg bg-[#f5edff] text-[#650dd4] mb-3">
+                      <div className="p-2.5 rounded-lg bg-accent text-primary mb-3">
                         <Icon className="h-4 w-4" />
                       </div>
-                      <h4 className="text-sm font-bold text-[#191919] mb-1.5">
+                      <h4 className="text-sm font-bold text-foreground mb-1.5">
                         {std.title}
                       </h4>
-                      <p className="text-xs text-[#5f5f5f] leading-relaxed">
+                      <p className="text-xs text-muted-foreground leading-relaxed">
                         {std.description}
                       </p>
                     </div>

@@ -28,7 +28,7 @@ const ENGAGEMENT_STEPS = [
 
 export function HowWeEngage() {
   return (
-    <section className="py-20 sm:py-24 bg-[#fafafa] border-b border-[#e5e7eb]">
+    <section className="py-20 sm:py-24 bg-background border-b border-border transition-colors duration-200">
       <Container>
         <SectionHeading
           eyebrow="Collaboration Model"
@@ -42,20 +42,20 @@ export function HowWeEngage() {
             return (
               <div
                 key={s.step}
-                className="flex flex-col p-8 rounded-2xl bg-white border border-[#e5e7eb] shadow-xs"
+                className="flex flex-col p-8 rounded-2xl bg-card border border-border shadow-xs"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <span className="font-mono text-xs font-bold text-[#650dd4] bg-[#f5edff] px-2.5 py-1 rounded">
+                  <span className="font-mono text-xs font-bold text-primary bg-accent px-2.5 py-1 rounded">
                     PHASE {s.step}
                   </span>
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-gray-50 text-gray-700 border border-gray-200">
+                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-surface-subtle text-foreground border border-border">
                     <Icon className="h-5 w-5" />
                   </div>
                 </div>
-                <h3 className="text-lg font-serif font-bold text-[#191919] mb-3">
+                <h3 className="text-lg font-serif font-bold text-foreground mb-3">
                   {s.title}
                 </h3>
-                <p className="text-sm text-[#5f5f5f] leading-relaxed flex-1">
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">
                   {s.description}
                 </p>
               </div>

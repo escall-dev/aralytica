@@ -76,13 +76,13 @@ export default async function InsightDetailPage({
   return (
     <article className="flex flex-col">
       {/* Header & Meta Section */}
-      <header className="py-16 sm:py-20 bg-[#fafafa] border-b border-[#e5e7eb]">
+      <header className="py-16 sm:py-20 bg-surface-subtle border-b border-border">
         <Container>
           <div className="max-w-3xl mx-auto">
             {/* Back Link */}
             <Link
               href="/insights"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#650dd4] hover:underline mb-8 group"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-hover hover:underline mb-8 group"
             >
               <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" />
               <span>Back to Insights &amp; Analysis</span>
@@ -94,24 +94,26 @@ export default async function InsightDetailPage({
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#191919] tracking-tight leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight leading-tight mb-6">
               {doc.title}
             </h1>
 
             {/* Publication Metadata */}
-            <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-sm text-[#5f5f5f] pt-4 border-t border-[#e5e7eb]">
+            <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-sm text-muted-foreground pt-4 border-t border-border">
               <div className="flex items-center gap-1.5">
-                <User className="h-4 w-4 text-gray-400" />
-                <span className="font-medium text-[#191919]">{doc.author}</span>
+                <User className="h-4 w-4 text-muted-foreground/70" />
+                <span className="font-medium text-foreground">
+                  {doc.author}
+                </span>
               </div>
 
               <div className="flex items-center gap-1.5">
-                <Calendar className="h-4 w-4 text-gray-400" />
+                <Calendar className="h-4 w-4 text-muted-foreground/70" />
                 <span>{doc.publicationDate}</span>
               </div>
 
               <div className="flex items-center gap-1.5">
-                <Clock className="h-4 w-4 text-gray-400" />
+                <Clock className="h-4 w-4 text-muted-foreground/70" />
                 <span>{doc.readingTime} min read</span>
               </div>
             </div>
@@ -120,12 +122,12 @@ export default async function InsightDetailPage({
       </header>
 
       {/* Main Narrative Section */}
-      <section className="py-16 sm:py-20 bg-white border-b border-[#e5e7eb]">
+      <section className="py-16 sm:py-20 bg-background border-b border-border">
         <Container>
           <div className="max-w-3xl mx-auto space-y-10">
             {/* Cover Image if present */}
             {coverImageUrl && (
-              <figure className="rounded-2xl overflow-hidden border border-[#e5e7eb] shadow-xs">
+              <figure className="rounded-2xl overflow-hidden border border-border shadow-xs">
                 <div className="relative aspect-video w-full">
                   <Image
                     src={coverImageUrl}
@@ -140,13 +142,13 @@ export default async function InsightDetailPage({
             )}
 
             {/* Lead Excerpt Paragraph */}
-            <p className="text-lg sm:text-xl text-[#191919] leading-relaxed font-serif font-medium border-l-2 border-[#650dd4] pl-5 italic">
+            <p className="text-lg sm:text-xl text-foreground leading-relaxed font-serif font-medium border-l-2 border-primary pl-5 italic">
               {doc.excerpt}
             </p>
 
             {/* Portable Text Body */}
             {doc.body && doc.body.length > 0 && (
-              <div className="pt-6 border-t border-gray-100">
+              <div className="pt-6 border-t border-border">
                 <CustomPortableText value={doc.body} />
               </div>
             )}

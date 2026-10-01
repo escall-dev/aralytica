@@ -22,7 +22,7 @@ export default function ContactPage() {
         description="Have a research, evaluation, or data question? Connect with our technical team to discuss study designs, institutional evaluations, or capacity advisory."
       />
 
-      <section className="py-20 sm:py-24 bg-[#fafafa] border-b border-[#e5e7eb]">
+      <section className="py-20 sm:py-24 bg-background border-b border-border">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Information Column */}

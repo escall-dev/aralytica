@@ -8,6 +8,7 @@ import { Menu } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/mobile-nav";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -24,15 +25,15 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full border-b border-[#e5e7eb] bg-white/95 backdrop-blur-md">
+      <header className="sticky top-0 z-40 w-full border-b border-border bg-card/95 backdrop-blur-md transition-colors duration-200">
         <Container className="flex h-18 items-center justify-between">
           {/* Logo / Brand */}
           <Link
             href="/"
-            className="flex items-center gap-3 group rounded-md focus-visible:outline-[#650dd4]"
+            className="flex items-center gap-3 group rounded-md focus-visible:outline-primary"
             aria-label="ARALytica Home"
           >
-            <div className="relative flex items-center justify-center h-10 w-10 rounded-lg bg-gray-50 border border-gray-100 p-1 group-hover:border-[#650dd4]/30 transition-colors">
+            <div className="relative flex items-center justify-center h-10 w-10 rounded-lg bg-white border border-border p-1 group-hover:border-primary/40 transition-colors shadow-xs">
               <Image
                 src="/logo/Aralytica-Logo.png"
                 alt="ARALytica"
@@ -43,10 +44,10 @@ export function Header() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold tracking-tight text-[#191919] group-hover:text-[#650dd4] transition-colors leading-tight">
+              <span className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors leading-tight">
                 ARALytica
               </span>
-              <span className="text-[10px] font-semibold tracking-wider text-[#5f5f5f] uppercase leading-none">
+              <span className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase leading-none">
                 Evidence • Insight • Impact
               </span>
             </div>
@@ -64,10 +65,10 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "px-3.5 py-1.5 text-sm font-medium rounded-md transition-colors duration-150 focus-visible:outline-[#650dd4]",
+                    "px-3.5 py-1.5 text-sm font-medium rounded-md transition-colors duration-150 focus-visible:outline-primary",
                     isActive
-                      ? "text-[#650dd4] font-semibold bg-[#f5edff]"
-                      : "text-[#5f5f5f] hover:text-[#191919] hover:bg-gray-100/70"
+                      ? "text-primary font-semibold bg-accent"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   )}
                   aria-current={isActive ? "page" : undefined}
                 >
@@ -77,24 +78,25 @@ export function Header() {
             })}
           </nav>
 
-          {/* Desktop Right CTA */}
+          {/* Desktop Right CTA & Theme Toggle */}
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle variant="desktop" />
             <Button href="/contact" variant="primary" size="md">
               Get in Touch
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center md:hidden gap-2">
             <button
               type="button"
               onClick={() => setMobileNavOpen(true)}
-              className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-[#191919] hover:bg-gray-100 focus-visible:outline-[#650dd4]"
+              className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:bg-muted border border-border bg-card focus-visible:outline-primary transition-colors cursor-pointer"
               aria-expanded={mobileNavOpen}
               aria-controls="mobile-navigation"
               aria-label="Open main menu"
             >
-              <Menu className="h-5 w-5 text-gray-700" />
+              <Menu className="h-5 w-5 text-foreground" />
               <span>Menu</span>
             </button>
           </div>

@@ -25,7 +25,7 @@ const APPROACH_PILLARS = [
 
 export function OurApproach() {
   return (
-    <section className="py-20 sm:py-24 bg-[#fafafa] border-b border-[#e5e7eb]">
+    <section className="py-20 sm:py-24 bg-background border-b border-border transition-colors duration-200">
       <Container>
         <SectionHeading
           eyebrow="Our Methodology"
@@ -39,18 +39,18 @@ export function OurApproach() {
             return (
               <div
                 key={pillar.title}
-                className="flex flex-col p-8 rounded-2xl bg-white border border-[#e5e7eb] shadow-xs hover:border-[#650dd4]/30 hover:shadow-md transition-all duration-200"
+                className="flex flex-col p-8 rounded-2xl bg-card border border-border shadow-xs hover:border-primary/40 hover:shadow-md transition-all duration-200"
               >
-                <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-[#f5edff] text-[#650dd4] mb-6">
+                <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-accent text-primary mb-6">
                   <Icon className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-[#191919] mb-3">
+                <h3 className="text-xl font-serif font-bold text-foreground mb-3">
                   {pillar.title}
                 </h3>
-                <p className="text-sm text-[#5f5f5f] leading-relaxed flex-1">
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">
                   {pillar.description}
                 </p>
-                <div className="mt-6 pt-4 border-t border-gray-100 flex items-center gap-2 text-xs font-semibold text-[#650dd4]">
+                <div className="mt-6 pt-4 border-t border-border flex items-center gap-2 text-xs font-semibold text-primary">
                   <CheckCircle2 className="h-4 w-4" />
                   <span>Core standard</span>
                 </div>

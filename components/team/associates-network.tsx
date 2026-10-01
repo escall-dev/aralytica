@@ -32,7 +32,7 @@ const NETWORK_CAPABILITIES = [
 
 export function AssociatesNetwork() {
   return (
-    <section className="py-20 sm:py-24 bg-[#fafafa] border-b border-[#e5e7eb]">
+    <section className="py-20 sm:py-24 bg-surface-subtle border-b border-border">
       <Container>
         <SectionHeading
           eyebrow="Associates & International Network"
@@ -41,7 +41,7 @@ export function AssociatesNetwork() {
         />
 
         {/* Narrative Paragraphs */}
-        <div className="mt-12 max-w-3xl mx-auto space-y-4 text-base text-[#5f5f5f] leading-relaxed text-center sm:text-left">
+        <div className="mt-12 max-w-3xl mx-auto space-y-4 text-base text-muted-foreground leading-relaxed text-center sm:text-left">
           {TEAM_PHILOSOPHY.paragraphs.map((p, idx) => (
             <p key={idx}>{p}</p>
           ))}
@@ -54,15 +54,15 @@ export function AssociatesNetwork() {
             return (
               <div
                 key={cap.title}
-                className="flex flex-col p-6 rounded-2xl bg-white border border-[#e5e7eb] shadow-xs"
+                className="flex flex-col p-6 rounded-2xl bg-card border border-border shadow-xs"
               >
-                <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-[#f5edff] text-[#650dd4] mb-4">
+                <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-accent text-accent-foreground mb-4">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="text-base font-serif font-bold text-[#191919] mb-2">
+                <h3 className="text-base font-serif font-bold text-foreground mb-2">
                   {cap.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#5f5f5f] leading-relaxed flex-1">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed flex-1">
                   {cap.description}
                 </p>
               </div>

@@ -31,7 +31,7 @@ const VALUES = [
 
 export function ValuesPrinciples() {
   return (
-    <section className="py-20 sm:py-24 bg-white border-b border-[#e5e7eb]">
+    <section className="py-20 sm:py-24 bg-card border-b border-border transition-colors duration-200">
       <Container>
         <SectionHeading
           eyebrow="Core Values"
@@ -45,15 +45,15 @@ export function ValuesPrinciples() {
             return (
               <div
                 key={val.title}
-                className="flex flex-col p-6 rounded-xl bg-[#fafafa] border border-[#e5e7eb] hover:bg-white hover:border-[#650dd4]/30 hover:shadow-sm transition-all duration-200"
+                className="flex flex-col p-6 rounded-xl bg-background border border-border hover:bg-surface-elevated hover:border-primary/40 hover:shadow-sm transition-all duration-200"
               >
-                <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-[#f5edff] text-[#650dd4] mb-4">
+                <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-accent text-primary mb-4">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="text-lg font-serif font-bold text-[#191919] mb-2">
+                <h3 className="text-lg font-serif font-bold text-foreground mb-2">
                   {val.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#5f5f5f] leading-relaxed flex-1">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed flex-1">
                   {val.description}
                 </p>
               </div>

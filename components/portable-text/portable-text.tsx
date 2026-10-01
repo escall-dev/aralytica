@@ -12,39 +12,39 @@ interface CustomPortableTextProps {
 const components: PortableTextComponents = {
   block: {
     normal: ({ children }) => (
-      <p className="text-base sm:text-lg text-[#3d3d3d] leading-relaxed mb-6 font-sans">
+      <p className="text-base sm:text-lg text-foreground/90 leading-relaxed mb-6 font-sans">
         {children}
       </p>
     ),
     h2: ({ children }) => (
-      <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#191919] mt-10 mb-4 tracking-tight">
+      <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground mt-10 mb-4 tracking-tight">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#191919] mt-8 mb-3">
+      <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground mt-8 mb-3">
         {children}
       </h3>
     ),
     h4: ({ children }) => (
-      <h4 className="text-lg font-serif font-bold text-[#191919] mt-6 mb-2">
+      <h4 className="text-lg font-serif font-bold text-foreground mt-6 mb-2">
         {children}
       </h4>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-[#650dd4] pl-5 sm:pl-6 my-8 italic text-lg sm:text-xl text-[#2a2a2a] bg-[#faf7fd] py-3.5 pr-4 rounded-r-xl font-serif">
+      <blockquote className="border-l-4 border-primary pl-5 sm:pl-6 my-8 italic text-lg sm:text-xl text-foreground bg-accent/40 py-3.5 pr-4 rounded-r-xl font-serif">
         {children}
       </blockquote>
     ),
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc pl-6 mb-6 space-y-2.5 text-[#3d3d3d] text-base sm:text-lg">
+      <ul className="list-disc pl-6 mb-6 space-y-2.5 text-foreground/90 text-base sm:text-lg">
         {children}
       </ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal pl-6 mb-6 space-y-2.5 text-[#3d3d3d] text-base sm:text-lg">
+      <ol className="list-decimal pl-6 mb-6 space-y-2.5 text-foreground/90 text-base sm:text-lg">
         {children}
       </ol>
     ),
@@ -55,14 +55,14 @@ const components: PortableTextComponents = {
   },
   marks: {
     strong: ({ children }) => (
-      <strong className="font-semibold text-[#191919]">{children}</strong>
+      <strong className="font-semibold text-foreground">{children}</strong>
     ),
     em: ({ children }) => <em className="italic">{children}</em>,
     underline: ({ children }) => (
       <span className="underline underline-offset-2">{children}</span>
     ),
     code: ({ children }) => (
-      <code className="font-mono text-xs sm:text-sm bg-gray-100 text-[#650dd4] px-1.5 py-0.5 rounded font-medium">
+      <code className="font-mono text-xs sm:text-sm bg-muted text-primary px-1.5 py-0.5 rounded font-medium border border-border">
         {children}
       </code>
     ),
@@ -74,7 +74,7 @@ const components: PortableTextComponents = {
         return (
           <Link
             href={href}
-            className="text-[#650dd4] font-medium underline underline-offset-4 hover:text-[#520ab0] transition-colors"
+            className="text-primary font-medium underline underline-offset-4 hover:text-primary-hover transition-colors"
           >
             {children}
           </Link>
@@ -87,7 +87,7 @@ const components: PortableTextComponents = {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#650dd4] font-medium underline underline-offset-4 hover:text-[#520ab0] transition-colors"
+          className="text-primary font-medium underline underline-offset-4 hover:text-primary-hover transition-colors"
         >
           {children}
         </a>
@@ -100,7 +100,7 @@ const components: PortableTextComponents = {
       if (!imageUrl) return null;
 
       return (
-        <figure className="my-8 rounded-2xl overflow-hidden border border-[#e5e7eb] bg-gray-50">
+        <figure className="my-8 rounded-2xl overflow-hidden border border-border bg-muted/30">
           <div className="relative aspect-video w-full">
             <Image
               src={imageUrl}
@@ -111,7 +111,7 @@ const components: PortableTextComponents = {
             />
           </div>
           {value.caption && (
-            <figcaption className="p-3 text-center text-xs text-[#5f5f5f] font-mono border-t border-gray-100 bg-white">
+            <figcaption className="p-3 text-center text-xs text-muted-foreground font-mono border-t border-border bg-card">
               {value.caption}
             </figcaption>
           )}

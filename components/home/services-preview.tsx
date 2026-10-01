@@ -36,7 +36,7 @@ export function ServicesPreview() {
   return (
     <section
       id="services"
-      className="py-20 sm:py-24 bg-[#fafafa] border-b border-[#e5e7eb]"
+      className="py-20 sm:py-24 bg-background border-b border-border transition-colors duration-200"
     >
       <Container>
         <SectionHeading
@@ -50,10 +50,10 @@ export function ServicesPreview() {
           {SERVICES.map((service) => (
             <div
               key={service.title}
-              className="flex flex-col bg-white rounded-2xl border border-[#e5e7eb] overflow-hidden shadow-sm hover:shadow-md hover:border-[#650dd4]/30 transition-all duration-200 group"
+              className="flex flex-col bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-200 group"
             >
               {/* Visual Presentation */}
-              <div className="relative aspect-4/3 w-full bg-gray-100 overflow-hidden border-b border-gray-100">
+              <div className="relative aspect-4/3 w-full bg-muted overflow-hidden border-b border-border">
                 <Image
                   src={service.image}
                   alt={service.alt}
@@ -62,7 +62,7 @@ export function ServicesPreview() {
                   sizes="(max-width: 1024px) 100vw, 33vw"
                 />
                 <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 text-xs font-semibold rounded-md bg-white/90 backdrop-blur-xs text-[#650dd4] shadow-xs">
+                  <span className="px-2.5 py-1 text-xs font-semibold rounded-md bg-card/90 backdrop-blur-xs text-primary shadow-xs border border-border/50">
                     {service.tag}
                   </span>
                 </div>
@@ -70,17 +70,17 @@ export function ServicesPreview() {
 
               {/* Text & Content */}
               <div className="p-6 sm:p-7 flex flex-col flex-1">
-                <h3 className="text-xl font-serif font-bold text-[#191919] group-hover:text-[#650dd4] transition-colors mb-3">
+                <h3 className="text-xl font-serif font-bold text-foreground group-hover:text-primary transition-colors mb-3">
                   {service.title}
                 </h3>
-                <p className="text-sm text-[#5f5f5f] leading-relaxed flex-1">
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1">
                   {service.description}
                 </p>
 
-                <div className="mt-6 pt-4 border-t border-gray-100">
+                <div className="mt-6 pt-4 border-t border-border">
                   <Link
                     href="/services"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#650dd4] hover:text-[#520ab0] transition-colors focus-visible:outline-[#650dd4]"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-hover transition-colors focus-visible:outline-primary"
                   >
                     <span>Learn more about this practice</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

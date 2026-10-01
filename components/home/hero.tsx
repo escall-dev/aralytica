@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#fafafa] to-[#f5edff]/30 py-20 sm:py-28 lg:py-32 border-b border-[#e5e7eb]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-card via-background to-accent/25 py-20 sm:py-28 lg:py-32 border-b border-border transition-colors duration-200">
       {/* Background Subtle Analytical Grid Pattern */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.035]"
+        className="absolute inset-0 pointer-events-none opacity-[0.035] dark:opacity-[0.05]"
         style={{
-          backgroundImage: `radial-gradient(#191919 1px, transparent 1px), linear-gradient(to right, #191919 1px, transparent 1px), linear-gradient(to bottom, #191919 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(currentColor 1px, transparent 1px), linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
           backgroundSize: "32px 32px, 128px 128px, 128px 128px",
         }}
         aria-hidden="true"
@@ -20,24 +20,24 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Typography & CTAs */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f5edff] border border-[#650dd4]/20">
-              <span className="h-2 w-2 rounded-full bg-[#650dd4] animate-pulse" />
-              <span className="text-xs font-semibold tracking-wider uppercase text-[#650dd4]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent border border-primary/20">
+              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-semibold tracking-wider uppercase text-accent-foreground">
                 Research • Analytics • Advisory
               </span>
             </div>
 
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif font-bold text-[#191919] tracking-tight leading-[1.15]">
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif font-bold text-foreground tracking-tight leading-[1.15]">
                 Evidence. <br />
-                <span className="text-[#650dd4]">Insight.</span> Impact.
+                <span className="text-primary">Insight.</span> Impact.
               </h1>
-              <p className="text-lg sm:text-xl font-medium text-[#191919]/80 font-serif">
+              <p className="text-lg sm:text-xl font-medium text-foreground/80 font-serif">
                 Rigorous analysis. Real-world impact.
               </p>
             </div>
 
-            <p className="text-base sm:text-lg text-[#5f5f5f] leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               ARALytica is a research, monitoring, evaluation, and data
               analytics firm helping organizations turn evidence into practical
               action. We combine methodological rigor with contextual
@@ -56,28 +56,28 @@ export function Hero() {
             </div>
 
             {/* Quick Evidence Pillars Pill */}
-            <div className="pt-4 grid grid-cols-3 gap-4 border-t border-[#e5e7eb] max-w-xl text-left">
+            <div className="pt-4 grid grid-cols-3 gap-4 border-t border-border max-w-xl text-left">
               <div>
-                <span className="text-xs font-semibold text-[#191919] uppercase tracking-wider block">
+                <span className="text-xs font-semibold text-foreground uppercase tracking-wider block">
                   Methodology
                 </span>
-                <span className="text-xs text-[#5f5f5f]">
+                <span className="text-xs text-muted-foreground">
                   Econometric & Mixed-Methods
                 </span>
               </div>
               <div>
-                <span className="text-xs font-semibold text-[#191919] uppercase tracking-wider block">
+                <span className="text-xs font-semibold text-foreground uppercase tracking-wider block">
                   Evaluation
                 </span>
-                <span className="text-xs text-[#5f5f5f]">
+                <span className="text-xs text-muted-foreground">
                   Program & Policy Diagnostics
                 </span>
               </div>
               <div>
-                <span className="text-xs font-semibold text-[#191919] uppercase tracking-wider block">
+                <span className="text-xs font-semibold text-foreground uppercase tracking-wider block">
                   Application
                 </span>
-                <span className="text-xs text-[#5f5f5f]">
+                <span className="text-xs text-muted-foreground">
                   Actionable Strategy
                 </span>
               </div>
@@ -86,11 +86,11 @@ export function Hero() {
 
           {/* Right Column: Analytical Visual Composition */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-md p-6 sm:p-8 rounded-2xl bg-white border border-[#e5e7eb] shadow-xl shadow-purple-950/5">
+            <div className="relative w-full max-w-md p-6 sm:p-8 rounded-2xl bg-card border border-border shadow-xl shadow-purple-950/5">
               {/* Card Header with Brand Logo */}
-              <div className="flex items-center justify-between pb-6 border-b border-[#e5e7eb]">
+              <div className="flex items-center justify-between pb-6 border-b border-border">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-[#f5edff]">
+                  <div className="p-2 rounded-lg bg-white border border-border/50 shadow-xs">
                     <Image
                       src="/logo/Aralytica-Logo.png"
                       alt="ARALytica Emblem"
@@ -100,73 +100,73 @@ export function Hero() {
                     />
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-[#191919]">
+                    <h3 className="text-base font-bold text-foreground">
                       ARALytica
                     </h3>
-                    <p className="text-xs text-[#5f5f5f]">
+                    <p className="text-xs text-muted-foreground">
                       Analytical Framework
                     </p>
                   </div>
                 </div>
-                <span className="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-[#f5edff] text-[#650dd4] border border-[#650dd4]/20">
+                <span className="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-accent text-accent-foreground border border-primary/20">
                   Core Model
                 </span>
               </div>
 
               {/* Analytical Process Node Flow */}
               <div className="py-6 space-y-4">
-                <div className="flex items-start gap-4 p-3 rounded-lg bg-gray-50 border border-gray-100 transition-colors hover:border-[#650dd4]/30">
-                  <div className="p-2 rounded-md bg-[#f5edff] text-[#650dd4] mt-0.5">
+                <div className="flex items-start gap-4 p-3 rounded-lg bg-surface-subtle border border-border transition-colors hover:border-primary/40">
+                  <div className="p-2 rounded-md bg-accent text-primary mt-0.5">
                     <Database className="h-4 w-4" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#191919]">
+                      <span className="text-xs font-bold uppercase tracking-wider text-foreground">
                         Phase 01: Evidence
                       </span>
-                      <span className="text-[10px] font-mono text-[#650dd4]">
+                      <span className="text-[10px] font-mono text-primary font-medium">
                         Collect & Validate
                       </span>
                     </div>
-                    <p className="text-xs text-[#5f5f5f] mt-0.5">
+                    <p className="text-xs text-muted-foreground mt-0.5">
                       Empirical baseline, field surveys & administrative data
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-3 rounded-lg bg-gray-50 border border-gray-100 transition-colors hover:border-[#650dd4]/30">
-                  <div className="p-2 rounded-md bg-[#f5edff] text-[#650dd4] mt-0.5">
+                <div className="flex items-start gap-4 p-3 rounded-lg bg-surface-subtle border border-border transition-colors hover:border-primary/40">
+                  <div className="p-2 rounded-md bg-accent text-primary mt-0.5">
                     <BarChart3 className="h-4 w-4" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#191919]">
+                      <span className="text-xs font-bold uppercase tracking-wider text-foreground">
                         Phase 02: Insight
                       </span>
-                      <span className="text-[10px] font-mono text-[#650dd4]">
+                      <span className="text-[10px] font-mono text-primary font-medium">
                         Model & Diagnose
                       </span>
                     </div>
-                    <p className="text-xs text-[#5f5f5f] mt-0.5">
+                    <p className="text-xs text-muted-foreground mt-0.5">
                       Econometric estimation & causal program evaluation
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-3 rounded-lg bg-gray-50 border border-gray-100 transition-colors hover:border-[#650dd4]/30">
-                  <div className="p-2 rounded-md bg-[#f5edff] text-[#650dd4] mt-0.5">
+                <div className="flex items-start gap-4 p-3 rounded-lg bg-surface-subtle border border-border transition-colors hover:border-primary/40">
+                  <div className="p-2 rounded-md bg-accent text-primary mt-0.5">
                     <Compass className="h-4 w-4" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase tracking-wider text-[#191919]">
+                      <span className="text-xs font-bold uppercase tracking-wider text-foreground">
                         Phase 03: Impact
                       </span>
-                      <span className="text-[10px] font-mono text-[#650dd4]">
+                      <span className="text-[10px] font-mono text-primary font-medium">
                         Action & Reform
                       </span>
                     </div>
-                    <p className="text-xs text-[#5f5f5f] mt-0.5">
+                    <p className="text-xs text-muted-foreground mt-0.5">
                       Institutional advisory, policy roadmaps & capacity
                       building
                     </p>
@@ -175,11 +175,11 @@ export function Hero() {
               </div>
 
               {/* Card Footer Quote */}
-              <div className="pt-4 border-t border-[#e5e7eb] flex items-center justify-between text-[11px] text-[#5f5f5f]">
+              <div className="pt-4 border-t border-border flex items-center justify-between text-[11px] text-muted-foreground">
                 <span className="italic font-serif">
                   &ldquo;From data to decisions, insight to impact.&rdquo;
                 </span>
-                <span className="font-semibold text-[#650dd4]">ARALytica</span>
+                <span className="font-semibold text-primary">ARALytica</span>
               </div>
             </div>
           </div>

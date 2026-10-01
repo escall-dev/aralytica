@@ -66,13 +66,13 @@ export default async function ResearchDetailPage({
   return (
     <article className="flex flex-col">
       {/* Top Header & Metadata */}
-      <header className="py-16 sm:py-20 bg-[#fafafa] border-b border-[#e5e7eb]">
+      <header className="py-16 sm:py-20 bg-background border-b border-border transition-colors duration-200">
         <Container>
           <div className="max-w-4xl mx-auto">
             {/* Back to archive link */}
             <Link
               href="/research"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#650dd4] hover:underline mb-8 group"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline mb-8 group"
             >
               <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" />
               <span>Back to Research &amp; Studies</span>
@@ -80,7 +80,7 @@ export default async function ResearchDetailPage({
 
             {/* Badges */}
             <div className="flex flex-wrap items-center gap-2 mb-4">
-              <span className="px-3 py-1 rounded-md bg-[#650dd4] text-white text-xs font-semibold">
+              <span className="px-3 py-1 rounded-md bg-primary text-primary-foreground text-xs font-semibold">
                 {doc.publicationType}
               </span>
               {doc.domains?.map((domain) => (
@@ -91,25 +91,25 @@ export default async function ResearchDetailPage({
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#191919] tracking-tight leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-foreground tracking-tight leading-tight mb-6">
               {doc.title}
             </h1>
 
             {/* Metadata Bar */}
-            <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-sm text-[#5f5f5f] pt-4 border-t border-[#e5e7eb]">
+            <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-sm text-muted-foreground pt-4 border-t border-border">
               <div className="flex items-center gap-1.5">
-                <Calendar className="h-4 w-4 text-gray-400" />
+                <Calendar className="h-4 w-4 text-muted-foreground" />
                 <span>{doc.publicationDate}</span>
               </div>
 
               {doc.authors && doc.authors.length > 0 && (
                 <div className="flex items-center gap-1.5">
-                  <User className="h-4 w-4 text-gray-400" />
+                  <User className="h-4 w-4 text-muted-foreground" />
                   <span>{doc.authors.join(", ")}</span>
                 </div>
               )}
 
-              <div className="flex items-center gap-1.5 font-mono text-xs text-[#650dd4]">
+              <div className="flex items-center gap-1.5 font-mono text-xs text-primary">
                 <FileText className="h-3.5 w-3.5" />
                 <span className="uppercase tracking-wider">
                   Status: {doc.status}
@@ -124,7 +124,7 @@ export default async function ResearchDetailPage({
                   href={doc.documentUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#650dd4] text-white text-sm font-semibold hover:bg-[#520ab0] transition-colors shadow-xs"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary-hover transition-colors shadow-xs"
                 >
                   <Download className="h-4 w-4" />
                   <span>Download Publication (PDF)</span>
@@ -136,15 +136,15 @@ export default async function ResearchDetailPage({
       </header>
 
       {/* Main Content Area */}
-      <section className="py-16 sm:py-20 bg-white border-b border-[#e5e7eb]">
+      <section className="py-16 sm:py-20 bg-card border-b border-border transition-colors duration-200">
         <Container>
           <div className="max-w-3xl mx-auto space-y-10">
             {/* Executive Abstract Box */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-[#fafafa] border border-[#e5e7eb] border-l-4 border-l-[#650dd4] shadow-xs">
-              <h2 className="text-xs font-mono uppercase tracking-wider text-[#650dd4] font-semibold mb-2">
+            <div className="p-6 sm:p-8 rounded-2xl bg-background border border-border border-l-4 border-l-primary shadow-xs">
+              <h2 className="text-xs font-mono uppercase tracking-wider text-primary font-semibold mb-2">
                 Executive Abstract
               </h2>
-              <p className="text-base sm:text-lg text-[#333] leading-relaxed font-serif italic">
+              <p className="text-base sm:text-lg text-foreground/90 leading-relaxed font-serif italic">
                 {doc.excerpt}
               </p>
             </div>
@@ -152,10 +152,10 @@ export default async function ResearchDetailPage({
             {/* Description if separate */}
             {doc.description && doc.description !== doc.excerpt && (
               <div className="space-y-4">
-                <h3 className="text-lg font-serif font-bold text-[#191919]">
+                <h3 className="text-lg font-serif font-bold text-foreground">
                   Methodological Overview &amp; Context
                 </h3>
-                <p className="text-base text-[#444] leading-relaxed">
+                <p className="text-base text-muted-foreground leading-relaxed">
                   {doc.description}
                 </p>
               </div>
@@ -163,7 +163,7 @@ export default async function ResearchDetailPage({
 
             {/* Body Content */}
             {doc.body && doc.body.length > 0 && (
-              <div className="pt-6 border-t border-gray-100">
+              <div className="pt-6 border-t border-border">
                 <CustomPortableText value={doc.body} />
               </div>
             )}

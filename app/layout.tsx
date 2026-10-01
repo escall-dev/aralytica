@@ -3,6 +3,7 @@ import { Inter, Vollkorn, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ThemeProvider } from "@/components/theme/theme-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -108,25 +109,35 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${inter.variable} ${vollkorn.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#fafafa] text-[#191919]">
-        {/* Skip to Main Content Link for Keyboard Accessibility */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#650dd4] focus:text-white focus:font-semibold focus:rounded-md focus:shadow-lg focus:outline-none"
-        >
-          Skip to main content
-        </a>
-        <Header />
-        <main
-          id="main-content"
-          tabIndex={-1}
-          className="flex-1 focus:outline-none"
-        >
-          {children}
-        </main>
-        <Footer />
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem('aralytica-theme');var d=document.documentElement;if(s==='dark'||(s!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches)){d.classList.add('dark');d.style.colorScheme='dark';}else{d.classList.remove('dark');d.style.colorScheme='light';}}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col font-sans bg-background text-foreground transition-colors duration-200">
+        <ThemeProvider>
+          {/* Skip to Main Content Link for Keyboard Accessibility */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:font-semibold focus:rounded-md focus:shadow-lg focus:outline-hidden"
+          >
+            Skip to main content
+          </a>
+          <Header />
+          <main
+            id="main-content"
+            tabIndex={-1}
+            className="flex-1 focus:outline-hidden"
+          >
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

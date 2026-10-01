@@ -28,7 +28,7 @@ const PILLARS = [
 
 export function WhyAralytica() {
   return (
-    <section className="py-20 sm:py-24 bg-white border-b border-[#e5e7eb]">
+    <section className="py-20 sm:py-24 bg-card border-b border-border transition-colors duration-200">
       <Container>
         <SectionHeading
           eyebrow="Why ARALytica"
@@ -43,26 +43,26 @@ export function WhyAralytica() {
             return (
               <div
                 key={pillar.title}
-                className="group relative flex flex-col p-8 rounded-2xl bg-[#fafafa] border border-[#e5e7eb] transition-all duration-200 hover:bg-white hover:border-[#650dd4]/30 hover:shadow-lg hover:shadow-purple-900/5"
+                className="group relative flex flex-col p-8 rounded-2xl bg-background border border-border transition-all duration-200 hover:bg-surface-elevated hover:border-primary/40 hover:shadow-lg hover:shadow-purple-900/5"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-[#f5edff] text-[#650dd4] group-hover:scale-105 transition-transform">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-accent text-primary group-hover:scale-105 transition-transform">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-white border border-[#e5e7eb] text-[#650dd4]">
+                  <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-card border border-border text-primary">
                     {pillar.highlight}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-serif font-bold text-[#191919] mb-3">
+                <h3 className="text-xl font-serif font-bold text-foreground mb-3">
                   {pillar.title}
                 </h3>
 
-                <p className="text-sm sm:text-base text-[#5f5f5f] leading-relaxed flex-1">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed flex-1">
                   {pillar.description}
                 </p>
 
-                <div className="mt-6 pt-4 border-t border-[#e5e7eb]/60 flex items-center text-xs font-semibold text-[#650dd4]">
+                <div className="mt-6 pt-4 border-t border-border flex items-center text-xs font-semibold text-primary">
                   <span>Evidence-based approach</span>
                 </div>
               </div>

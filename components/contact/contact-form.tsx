@@ -83,23 +83,23 @@ export function ContactForm() {
       <div
         role="status"
         aria-live="polite"
-        className="p-8 sm:p-10 rounded-2xl bg-white border border-[#e5e7eb] shadow-xs text-center space-y-5 animate-in fade-in duration-300"
+        className="p-8 sm:p-10 rounded-2xl bg-card border border-border shadow-xs text-center space-y-5 animate-in fade-in duration-300"
       >
-        <div className="mx-auto flex items-center justify-center h-14 w-14 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">
+        <div className="mx-auto flex items-center justify-center h-14 w-14 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
           <CheckCircle2 className="h-7 w-7" aria-hidden="true" />
         </div>
         <div className="space-y-3">
-          <h3 className="text-2xl font-serif font-bold text-[#191919]">
+          <h3 className="text-2xl font-serif font-bold text-foreground">
             Inquiry Received by ARALytica
           </h3>
-          <p className="text-sm text-[#5f5f5f] max-w-md mx-auto leading-relaxed">
+          <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
             Thank you, <strong>{formData.name}</strong>. Your inquiry regarding{" "}
             &ldquo;<strong>{formData.subject}</strong>&rdquo; has been
             successfully received.
           </p>
-          <p className="text-xs text-[#5f5f5f] max-w-md mx-auto leading-relaxed">
+          <p className="text-xs text-muted-foreground max-w-md mx-auto leading-relaxed">
             Technical leadership will evaluate your scope and respond directly
-            to <strong className="text-[#191919]">{formData.email}</strong>,
+            to <strong className="text-foreground">{formData.email}</strong>,
             typically within two business days.
           </p>
         </div>
@@ -121,7 +121,7 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit}
       noValidate={false}
-      className="p-8 sm:p-10 rounded-2xl bg-white border border-[#e5e7eb] shadow-xs space-y-6"
+      className="p-8 sm:p-10 rounded-2xl bg-card border border-border shadow-xs space-y-6"
     >
       {/* Honeypot Anti-Spam Field - Hidden from legitimate users */}
       <div
@@ -147,17 +147,17 @@ export function ContactForm() {
         <div
           role="alert"
           aria-live="assertive"
-          className="p-4 rounded-xl bg-red-50 border border-red-200 text-sm text-red-900 flex items-start gap-3 animate-in fade-in duration-200"
+          className="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-sm text-red-900 dark:text-red-200 flex items-start gap-3 animate-in fade-in duration-200"
         >
           <AlertCircle
-            className="h-5 w-5 text-red-600 shrink-0 mt-0.5"
+            className="h-5 w-5 text-red-600 dark:text-red-400 shrink-0 mt-0.5"
             aria-hidden="true"
           />
           <div className="space-y-1">
-            <p className="font-semibold text-xs uppercase tracking-wide text-red-700">
+            <p className="font-semibold text-xs uppercase tracking-wide text-red-700 dark:text-red-300">
               Inquiry Submission Notice
             </p>
-            <p className="text-xs leading-relaxed text-red-800">
+            <p className="text-xs leading-relaxed text-red-800 dark:text-red-200">
               {errorMessage ||
                 `We couldn't submit your inquiry right now. Please try again or contact ARALytica directly at ${SITE_CONFIG.contactEmail}.`}
             </p>
@@ -170,10 +170,10 @@ export function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="contact-name"
-            className="block text-xs font-semibold uppercase tracking-wider text-[#191919]"
+            className="block text-xs font-semibold uppercase tracking-wider text-foreground"
           >
             Full Name{" "}
-            <span className="text-[#650dd4]" aria-hidden="true">
+            <span className="text-primary" aria-hidden="true">
               *
             </span>
           </label>
@@ -187,7 +187,7 @@ export function ContactForm() {
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             placeholder="e.g. Dr. Maria Santos"
-            className="w-full px-4 py-2.5 rounded-lg border border-[#e5e7eb] text-sm text-[#191919] placeholder:text-gray-400 focus:border-[#650dd4] focus:ring-2 focus:ring-[#650dd4]/20 transition-all outline-hidden disabled:bg-gray-50 disabled:text-gray-400"
+            className="w-full px-4 py-2.5 rounded-lg border border-input-border bg-input text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-hidden disabled:bg-surface-subtle disabled:text-muted-foreground/50"
           />
         </div>
 
@@ -195,10 +195,10 @@ export function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="contact-organization"
-            className="block text-xs font-semibold uppercase tracking-wider text-[#191919]"
+            className="block text-xs font-semibold uppercase tracking-wider text-foreground"
           >
             Organization / Agency{" "}
-            <span className="text-[#650dd4]" aria-hidden="true">
+            <span className="text-primary" aria-hidden="true">
               *
             </span>
           </label>
@@ -214,7 +214,7 @@ export function ContactForm() {
               setFormData({ ...formData, organization: e.target.value })
             }
             placeholder="e.g. Ministry of Education / Development Partner"
-            className="w-full px-4 py-2.5 rounded-lg border border-[#e5e7eb] text-sm text-[#191919] placeholder:text-gray-400 focus:border-[#650dd4] focus:ring-2 focus:ring-[#650dd4]/20 transition-all outline-hidden disabled:bg-gray-50 disabled:text-gray-400"
+            className="w-full px-4 py-2.5 rounded-lg border border-input-border bg-input text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-hidden disabled:bg-surface-subtle disabled:text-muted-foreground/50"
           />
         </div>
       </div>
@@ -224,10 +224,10 @@ export function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="contact-email"
-            className="block text-xs font-semibold uppercase tracking-wider text-[#191919]"
+            className="block text-xs font-semibold uppercase tracking-wider text-foreground"
           >
             Work Email Address{" "}
-            <span className="text-[#650dd4]" aria-hidden="true">
+            <span className="text-primary" aria-hidden="true">
               *
             </span>
           </label>
@@ -243,7 +243,7 @@ export function ContactForm() {
               setFormData({ ...formData, email: e.target.value })
             }
             placeholder="name@organization.org"
-            className="w-full px-4 py-2.5 rounded-lg border border-[#e5e7eb] text-sm text-[#191919] placeholder:text-gray-400 focus:border-[#650dd4] focus:ring-2 focus:ring-[#650dd4]/20 transition-all outline-hidden disabled:bg-gray-50 disabled:text-gray-400"
+            className="w-full px-4 py-2.5 rounded-lg border border-input-border bg-input text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-hidden disabled:bg-surface-subtle disabled:text-muted-foreground/50"
           />
         </div>
 
@@ -251,10 +251,10 @@ export function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="contact-practice-area"
-            className="block text-xs font-semibold uppercase tracking-wider text-[#191919]"
+            className="block text-xs font-semibold uppercase tracking-wider text-foreground"
           >
             Practice Area of Interest{" "}
-            <span className="text-[#650dd4]" aria-hidden="true">
+            <span className="text-primary" aria-hidden="true">
               *
             </span>
           </label>
@@ -271,10 +271,14 @@ export function ContactForm() {
                 practiceArea: e.target.value as ContactFormData["practiceArea"],
               })
             }
-            className="w-full px-4 py-2.5 rounded-lg border border-[#e5e7eb] text-sm text-[#191919] bg-white focus:border-[#650dd4] focus:ring-2 focus:ring-[#650dd4]/20 transition-all outline-hidden disabled:bg-gray-50 disabled:text-gray-400"
+            className="w-full px-4 py-2.5 rounded-lg border border-input-border bg-input text-sm text-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-hidden disabled:bg-surface-subtle disabled:text-muted-foreground/50"
           >
             {PRACTICE_AREAS.map((area) => (
-              <option key={area} value={area}>
+              <option
+                key={area}
+                value={area}
+                className="bg-card text-foreground"
+              >
                 {area}
               </option>
             ))}
@@ -286,10 +290,10 @@ export function ContactForm() {
       <div className="space-y-2">
         <label
           htmlFor="contact-subject"
-          className="block text-xs font-semibold uppercase tracking-wider text-[#191919]"
+          className="block text-xs font-semibold uppercase tracking-wider text-foreground"
         >
           Subject / Study Title{" "}
-          <span className="text-[#650dd4]" aria-hidden="true">
+          <span className="text-primary" aria-hidden="true">
             *
           </span>
         </label>
@@ -305,7 +309,7 @@ export function ContactForm() {
             setFormData({ ...formData, subject: e.target.value })
           }
           placeholder="Brief summary of your research or evaluation need"
-          className="w-full px-4 py-2.5 rounded-lg border border-[#e5e7eb] text-sm text-[#191919] placeholder:text-gray-400 focus:border-[#650dd4] focus:ring-2 focus:ring-[#650dd4]/20 transition-all outline-hidden disabled:bg-gray-50 disabled:text-gray-400"
+          className="w-full px-4 py-2.5 rounded-lg border border-input-border bg-input text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-hidden disabled:bg-surface-subtle disabled:text-muted-foreground/50"
         />
       </div>
 
@@ -313,10 +317,10 @@ export function ContactForm() {
       <div className="space-y-2">
         <label
           htmlFor="contact-message"
-          className="block text-xs font-semibold uppercase tracking-wider text-[#191919]"
+          className="block text-xs font-semibold uppercase tracking-wider text-foreground"
         >
           Detailed Inquiry{" "}
-          <span className="text-[#650dd4]" aria-hidden="true">
+          <span className="text-primary" aria-hidden="true">
             *
           </span>
         </label>
@@ -332,7 +336,7 @@ export function ContactForm() {
             setFormData({ ...formData, message: e.target.value })
           }
           placeholder="Please share details on your study scope, target timeline, institutional context, or specific analytical objectives..."
-          className="w-full px-4 py-2.5 rounded-lg border border-[#e5e7eb] text-sm text-[#191919] placeholder:text-gray-400 focus:border-[#650dd4] focus:ring-2 focus:ring-[#650dd4]/20 transition-all outline-hidden resize-y disabled:bg-gray-50 disabled:text-gray-400"
+          className="w-full px-4 py-2.5 rounded-lg border border-input-border bg-input text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-hidden resize-y disabled:bg-surface-subtle disabled:text-muted-foreground/50"
         />
       </div>
 
@@ -356,7 +360,7 @@ export function ContactForm() {
             </>
           )}
         </Button>
-        <span className="text-xs text-[#5f5f5f]">
+        <span className="text-xs text-muted-foreground">
           Direct technical review • Formal correspondence
         </span>
       </div>

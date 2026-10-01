@@ -30,13 +30,13 @@ export const Button = React.forwardRef<
 
     const variantStyles = {
       primary:
-        "bg-[#650dd4] text-white hover:bg-[#520ab0] shadow-sm focus-visible:outline-[#650dd4]",
+        "bg-primary text-primary-foreground hover:bg-primary-hover shadow-sm focus-visible:outline-primary",
       secondary:
-        "bg-[#f5edff] text-[#650dd4] hover:bg-[#ebd9ff] focus-visible:outline-[#650dd4]",
+        "bg-accent text-accent-foreground hover:bg-accent/80 focus-visible:outline-primary",
       outline:
-        "border border-[#e5e7eb] bg-white text-[#191919] hover:bg-gray-50 hover:border-gray-300 focus-visible:outline-[#650dd4]",
+        "border border-border bg-card text-foreground hover:bg-muted hover:border-border/80 focus-visible:outline-primary",
       ghost:
-        "text-[#191919] hover:text-[#650dd4] hover:bg-[#f5edff]/60 focus-visible:outline-[#650dd4]",
+        "text-foreground hover:text-primary hover:bg-accent/60 focus-visible:outline-primary",
     };
 
     const sizeStyles = {

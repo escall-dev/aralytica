@@ -10,25 +10,25 @@ interface InsightCardProps {
 
 export function InsightCard({ item }: InsightCardProps) {
   return (
-    <article className="flex flex-col p-6 sm:p-7 rounded-2xl bg-white border border-[#e5e7eb] shadow-xs hover:border-[#650dd4]/30 hover:shadow-md transition-all duration-200 group">
+    <article className="flex flex-col p-6 sm:p-7 rounded-2xl bg-card border border-border shadow-xs hover:border-primary/40 hover:shadow-md transition-all duration-200 group">
       <div className="flex items-center justify-between gap-2 mb-4">
         <CategoryBadge category={item.category} />
       </div>
 
-      <h3 className="text-xl font-serif font-bold text-[#191919] group-hover:text-[#650dd4] transition-colors mb-3 leading-snug">
+      <h3 className="text-xl font-serif font-bold text-foreground group-hover:text-primary transition-colors mb-3 leading-snug">
         <Link
           href={`/insights/${item.slug}`}
-          className="focus-visible:outline-[#650dd4]"
+          className="focus-visible:outline-primary"
         >
           {item.title}
         </Link>
       </h3>
 
-      <p className="text-sm text-[#5f5f5f] leading-relaxed mb-6 flex-1">
+      <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
         {item.excerpt}
       </p>
 
-      <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+      <div className="pt-4 border-t border-border flex items-center justify-between">
         <PublicationMeta
           publishedAt={item.publishedAt}
           readTimeMinutes={item.readTimeMinutes}
@@ -36,7 +36,7 @@ export function InsightCard({ item }: InsightCardProps) {
         />
         <Link
           href={`/insights/${item.slug}`}
-          className="text-xs font-semibold text-[#650dd4] hover:text-[#520ab0] inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
+          className="text-xs font-semibold text-primary hover:text-primary-hover inline-flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
           aria-label={`Read article: ${item.title}`}
         >
           <span>Read</span>
