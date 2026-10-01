@@ -1,24 +1,30 @@
 import type { Metadata } from "next";
+import { PageHeader } from "@/components/ui/page-header";
+import { WhoWeAre } from "@/components/about/who-we-are";
+import { OurApproach } from "@/components/about/our-approach";
+import { EvidenceInsightImpact } from "@/components/home/evidence-insight-impact";
+import { ValuesPrinciples } from "@/components/about/values-principles";
+import { ContactCta } from "@/components/home/contact-cta";
 
 export const metadata: Metadata = {
-  title: "About — ARALytica",
+  title: "About Us",
+  description:
+    "ARALytica is a research, monitoring, evaluation, and data analytics firm helping organizations turn evidence into practical action through methodological rigor and contextual understanding.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="container-aralytica py-16">
-      <div className="max-w-2xl space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          About
-        </h1>
-        <p className="text-sm font-medium uppercase tracking-wider text-[#650dd4]">
-          Route: /about
-        </p>
-        <p className="text-gray-600">
-          Temporary placeholder page for the About section. Content and full
-          design will be implemented in future phases.
-        </p>
-      </div>
+    <div className="flex flex-col">
+      <PageHeader
+        eyebrow="About ARALytica"
+        title="Evidence that Informs. Insights that Improve."
+        description="A research, monitoring, evaluation, and data analytics firm helping organizations turn evidence into practical action."
+      />
+      <WhoWeAre />
+      <OurApproach />
+      <EvidenceInsightImpact />
+      <ValuesPrinciples />
+      <ContactCta />
     </div>
   );
 }

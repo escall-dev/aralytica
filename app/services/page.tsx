@@ -1,24 +1,26 @@
 import type { Metadata } from "next";
+import { PageHeader } from "@/components/ui/page-header";
+import { ServicesList } from "@/components/services/services-list";
+import { HowWeEngage } from "@/components/services/how-we-engage";
+import { ContactCta } from "@/components/home/contact-cta";
 
 export const metadata: Metadata = {
-  title: "Services — ARALytica",
+  title: "Services",
+  description:
+    "Explore ARALytica's core practice areas: Research & Policy Analysis, Evaluation Support, and Capacity Building & Advisory for government agencies and development organizations.",
 };
 
 export default function ServicesPage() {
   return (
-    <div className="container-aralytica py-16">
-      <div className="max-w-2xl space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Services
-        </h1>
-        <p className="text-sm font-medium uppercase tracking-wider text-[#650dd4]">
-          Route: /services
-        </p>
-        <p className="text-gray-600">
-          Temporary placeholder page for the Services section. Content and full
-          design will be implemented in future phases.
-        </p>
-      </div>
+    <div className="flex flex-col">
+      <PageHeader
+        eyebrow="Our Practice"
+        title="Turning Data into Decisions"
+        description="We help organizations design, evaluate, and strengthen programs through rigorous research and data-driven insights. From strategy to implementation, our work is grounded in evidence and focused on real-world impact."
+      />
+      <ServicesList />
+      <HowWeEngage />
+      <ContactCta />
     </div>
   );
 }
