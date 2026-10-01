@@ -56,11 +56,13 @@ aralytica/
 ## 🚀 Getting Started
 
 ### 1. Install dependencies
+
 ```bash
 npm install
 ```
 
 ### 2. Run the development server
+
 ```bash
 npm run dev
 ```
@@ -68,11 +70,13 @@ npm run dev
 Visit [http://localhost:3000](http://localhost:3000) to view the development application.
 
 ### 3. Build for production
+
 ```bash
 npm run build
 ```
 
 ### 4. Code quality checks
+
 ```bash
 npm run lint
 npm run format
@@ -82,6 +86,6 @@ npm run format
 
 ## 🎨 Brand Identity
 
-- **Tagline:** *"Evidence. Insight. Impact."*
+- **Tagline:** _"Evidence. Insight. Impact."_
 - **Primary Color:** `#650DD4`
-- **Etymology:** Rooted in the Filipino word *"Aral"*, meaning study and disciplined learning.
+- **Etymology:** Rooted in the Filipino word _"Aral"_, meaning study and disciplined learning.

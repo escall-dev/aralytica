@@ -1,25 +1,39 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Vollkorn, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const vollkorn = Vollkorn({
+  variable: "--font-vollkorn",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "ARALytica — Evidence. Insight. Impact.",
+  title: {
+    default: "ARALytica — Evidence. Insight. Impact.",
+    template: "%s | ARALytica",
+  },
   description:
     "ARALytica is a research, monitoring, evaluation, and data analytics firm that helps organizations turn evidence into practical action.",
   icons: {
     icon: "/logo/Aralytica-Logo.png",
+    apple: "/logo/Aralytica-Logo.png",
   },
 };
 
@@ -31,9 +45,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${vollkorn.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#fafafa] text-gray-900">
+      <body className="min-h-full flex flex-col font-sans bg-[#fafafa] text-[#191919]">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
