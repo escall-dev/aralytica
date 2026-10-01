@@ -15,8 +15,7 @@ interface RateLimitRecord {
 }
 const rateLimitMap = new Map<string, RateLimitRecord>();
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
-const MAX_REQUESTS_PER_WINDOW =
-  process.env.NODE_ENV === "production" ? 10 : 50;
+const MAX_REQUESTS_PER_WINDOW = process.env.NODE_ENV === "production" ? 10 : 50;
 const MAX_PAYLOAD_BYTES = 32 * 1024; // 32KB
 
 function isRateLimited(ip: string): boolean {

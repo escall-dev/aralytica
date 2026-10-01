@@ -1,7 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import { BookOpen, FileCheck, Layers, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { RESEARCH_PUBLICATIONS } from "@/lib/data/research";
+import { RESEARCH_PUBLICATIONS, type ResearchItem } from "@/lib/data/research";
 import { ResearchCard } from "@/components/research/research-card";
 
 const DOCUMENT_TYPES = [
@@ -11,6 +14,13 @@ const DOCUMENT_TYPES = [
   "Evaluation Briefs",
   "Technical Reports",
 ];
+
+const TYPE_MAP: Record<string, string> = {
+  "Working Papers": "Working Paper",
+  "Policy Notes": "Policy Note",
+  "Evaluation Briefs": "Evaluation Brief",
+  "Technical Reports": "Technical Report",
+};
 
 const REPOSITORY_STANDARDS = [
   {
@@ -33,8 +43,22 @@ const REPOSITORY_STANDARDS = [
   },
 ];
 
-export function PublicationsRepository() {
-  const hasPublications = RESEARCH_PUBLICATIONS.length > 0;
+interface PublicationsRepositoryProps {
+  items?: ResearchItem[];
+}
+
+export function PublicationsRepository({
+  items = RESEARCH_PUBLICATIONS,
+}: PublicationsRepositoryProps) {
+  const [selectedType, setSelectedType] = useState("All Document Types");
+
+  const filteredItems = items.filter((item) => {
+    if (selectedType === "All Document Types") return true;
+    const mapped = TYPE_MAP[selectedType];
+    return item.documentType === mapped || item.category === selectedType;
+  });
+
+  const hasPublications = items.length > 0;
 
   return (
     <section className="py-20 sm:py-24 bg-[#fafafa] border-b border-[#e5e7eb]">
@@ -50,28 +74,49 @@ export function PublicationsRepository() {
           <span className="text-xs font-mono uppercase tracking-wider text-gray-500 mr-2">
             Filter by:
           </span>
-          {DOCUMENT_TYPES.map((type, i) => (
-            <span
-              key={type}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium cursor-default transition-colors ${
-                i === 0
-                  ? "bg-[#650dd4] text-white font-semibold"
-                  : "bg-white border border-[#e5e7eb] text-gray-700 hover:bg-gray-50"
-              }`}
-            >
-              {type}
-            </span>
-          ))}
+          {DOCUMENT_TYPES.map((type) => {
+            const isActive = selectedType === type;
+            return (
+              <button
+                key={type}
+                type="button"
+                onClick={() => setSelectedType(type)}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${
+                  isActive
+                    ? "bg-[#650dd4] text-white font-semibold shadow-xs"
+                    : "bg-white border border-[#e5e7eb] text-gray-700 hover:bg-gray-50"
+                }`}
+              >
+                {type}
+              </button>
+            );
+          })}
         </div>
 
         {/* Content Area */}
         <div className="mt-10">
           {hasPublications ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {RESEARCH_PUBLICATIONS.map((item) => (
-                <ResearchCard key={item.id} item={item} />
-              ))}
-            </div>
+            filteredItems.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredItems.map((item) => (
+                  <ResearchCard key={item.id} item={item} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 p-8 rounded-2xl bg-white border border-[#e5e7eb]">
+                <p className="text-sm text-[#5f5f5f]">
+                  No publications currently cataloged under &ldquo;
+                  {selectedType}&rdquo;.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSelectedType("All Document Types")}
+                  className="mt-3 text-xs font-semibold text-[#650dd4] hover:underline"
+                >
+                  View all publications
+                </button>
+              </div>
+            )
           ) : (
             <div className="space-y-12">
               {/* Intentional Repository Status Banner */}

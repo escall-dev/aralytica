@@ -6,6 +6,10 @@ import { TEAM_DATA } from "@/lib/data/team";
 import { TeamMemberCard } from "@/components/team/team-member-card";
 import { AssociatesNetwork } from "@/components/team/associates-network";
 import { ContactCta } from "@/components/home/contact-cta";
+import { getPublishedTeamMembers } from "@/lib/sanity/queries";
+import { mapSanityTeamMemberToMember } from "@/lib/sanity/adapters";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Our Team & Leadership",
@@ -16,7 +20,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TeamPage() {
+export default async function TeamPage() {
+  const sanityTeam = await getPublishedTeamMembers();
+  const members =
+    sanityTeam.length > 0
+      ? sanityTeam.map(mapSanityTeamMemberToMember)
+      : TEAM_DATA;
   return (
     <div className="flex flex-col">
       <PageHeader
@@ -35,7 +44,7 @@ export default function TeamPage() {
           />
 
           <div className="mt-14 max-w-4xl mx-auto space-y-8">
-            {TEAM_DATA.map((member) => (
+            {members.map((member) => (
               <TeamMemberCard key={member.id} member={member} />
             ))}
           </div>

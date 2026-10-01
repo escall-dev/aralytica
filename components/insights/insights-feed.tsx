@@ -1,6 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import { Newspaper, BookOpen, BarChart2, FileCode } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { INSIGHTS_DATA, INSIGHT_CATEGORIES } from "@/lib/data/insights";
+import {
+  INSIGHTS_DATA,
+  INSIGHT_CATEGORIES,
+  type InsightItem,
+} from "@/lib/data/insights";
 import { InsightCard } from "@/components/insights/insight-card";
 
 const EDITORIAL_SECTIONS = [
@@ -30,8 +37,19 @@ const EDITORIAL_SECTIONS = [
   },
 ];
 
-export function InsightsFeed() {
-  const hasInsights = INSIGHTS_DATA.length > 0;
+interface InsightsFeedProps {
+  items?: InsightItem[];
+}
+
+export function InsightsFeed({ items = INSIGHTS_DATA }: InsightsFeedProps) {
+  const [selectedDesk, setSelectedDesk] = useState<string>("All Desks");
+
+  const filteredItems = items.filter((item) => {
+    if (selectedDesk === "All Desks") return true;
+    return item.category === selectedDesk;
+  });
+
+  const hasInsights = items.length > 0;
 
   return (
     <section className="py-20 sm:py-24 bg-white border-b border-[#e5e7eb]">
@@ -41,27 +59,57 @@ export function InsightsFeed() {
           <span className="text-xs font-mono uppercase tracking-wider text-gray-500 mr-2">
             Editorial Desks:
           </span>
-          <span className="px-3 py-1.5 rounded-full text-xs font-semibold bg-[#650dd4] text-white">
+          <button
+            type="button"
+            onClick={() => setSelectedDesk("All Desks")}
+            className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors cursor-pointer ${
+              selectedDesk === "All Desks"
+                ? "bg-[#650dd4] text-white"
+                : "bg-[#fafafa] border border-[#e5e7eb] text-gray-700 hover:bg-gray-100"
+            }`}
+          >
             All Desks
-          </span>
+          </button>
           {INSIGHT_CATEGORIES.map((cat) => (
-            <span
+            <button
               key={cat}
-              className="px-3 py-1.5 rounded-full text-xs font-medium bg-[#fafafa] border border-[#e5e7eb] text-gray-700 hover:bg-gray-100 transition-colors cursor-default"
+              type="button"
+              onClick={() => setSelectedDesk(cat)}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer ${
+                selectedDesk === cat
+                  ? "bg-[#650dd4] text-white font-semibold"
+                  : "bg-[#fafafa] border border-[#e5e7eb] text-gray-700 hover:bg-gray-100"
+              }`}
             >
               {cat}
-            </span>
+            </button>
           ))}
         </div>
 
         {/* Content Feed */}
         <div className="mt-12">
           {hasInsights ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {INSIGHTS_DATA.map((item) => (
-                <InsightCard key={item.id} item={item} />
-              ))}
-            </div>
+            filteredItems.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredItems.map((item) => (
+                  <InsightCard key={item.id} item={item} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 p-8 rounded-2xl bg-[#fafafa] border border-[#e5e7eb]">
+                <p className="text-sm text-[#5f5f5f]">
+                  No articles currently published under the &ldquo;
+                  {selectedDesk}&rdquo; desk.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSelectedDesk("All Desks")}
+                  className="mt-3 text-xs font-semibold text-[#650dd4] hover:underline"
+                >
+                  View all editorial desks
+                </button>
+              </div>
+            )
           ) : (
             <div className="space-y-12">
               {/* Editorial Desk Lead Banner */}

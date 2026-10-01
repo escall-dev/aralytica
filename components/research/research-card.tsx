@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Calendar, Download, FileText } from "lucide-react";
 import { ResearchItem } from "@/lib/data/research";
 import { Badge } from "@/components/ui/badge";
@@ -25,7 +26,16 @@ export function ResearchCard({ item }: ResearchCardProps) {
       </div>
 
       <h3 className="text-xl font-serif font-bold text-[#191919] group-hover:text-[#650dd4] transition-colors mb-3 leading-snug">
-        {item.title}
+        {item.slug ? (
+          <Link
+            href={`/research/${item.slug}`}
+            className="hover:underline focus-visible:outline-[#650dd4]"
+          >
+            {item.title}
+          </Link>
+        ) : (
+          item.title
+        )}
       </h3>
 
       <p className="text-sm text-[#5f5f5f] leading-relaxed flex-1">
@@ -43,19 +53,29 @@ export function ResearchCard({ item }: ResearchCardProps) {
           {item.status === "published" ? "Available" : "Forthcoming"}
         </span>
 
-        {item.downloadUrl ? (
-          <a
-            href={item.downloadUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#650dd4] hover:underline"
-          >
-            <Download className="h-3.5 w-3.5" />
-            <span>Download PDF</span>
-          </a>
-        ) : (
-          <span className="text-xs text-gray-400 font-mono">Catalog Ref</span>
-        )}
+        <div className="flex items-center gap-3">
+          {item.slug && (
+            <Link
+              href={`/research/${item.slug}`}
+              className="text-xs font-semibold text-[#650dd4] hover:underline"
+            >
+              View Document
+            </Link>
+          )}
+          {item.downloadUrl ? (
+            <a
+              href={item.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#650dd4] hover:underline"
+            >
+              <Download className="h-3.5 w-3.5" />
+              <span>PDF</span>
+            </a>
+          ) : (
+            <span className="text-xs text-gray-400 font-mono">Catalog Ref</span>
+          )}
+        </div>
       </div>
     </article>
   );

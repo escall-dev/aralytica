@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Award, Building2 } from "lucide-react";
 import { TeamMember } from "@/lib/data/team";
 
@@ -11,11 +12,23 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Avatar & Essentials */}
         <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
-          <div className="h-28 w-28 rounded-2xl bg-gradient-to-br from-[#650dd4] to-[#450993] text-white flex items-center justify-center shadow-md shadow-purple-900/10 mb-4">
-            <span className="font-serif text-3xl font-bold tracking-tight">
-              {member.initials}
-            </span>
-          </div>
+          {member.photoUrl ? (
+            <div className="relative h-28 w-28 rounded-2xl overflow-hidden shadow-md shadow-purple-900/10 mb-4 border border-[#e5e7eb]">
+              <Image
+                src={member.photoUrl}
+                alt={member.name}
+                fill
+                className="object-cover"
+                sizes="112px"
+              />
+            </div>
+          ) : (
+            <div className="h-28 w-28 rounded-2xl bg-gradient-to-br from-[#650dd4] to-[#450993] text-white flex items-center justify-center shadow-md shadow-purple-900/10 mb-4">
+              <span className="font-serif text-3xl font-bold tracking-tight">
+                {member.initials}
+              </span>
+            </div>
+          )}
           <h3 className="text-2xl font-serif font-bold text-[#191919]">
             {member.name}
           </h3>

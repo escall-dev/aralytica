@@ -8,6 +8,7 @@ export interface TeamMember {
   bio: string[];
   expertise: string[];
   institutions: string[];
+  photoUrl?: string | null;
 }
 
 export const TEAM_DATA: TeamMember[] = [
