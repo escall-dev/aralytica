@@ -91,6 +91,7 @@ export function Header() {
               onClick={() => setMobileNavOpen(true)}
               className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-[#191919] hover:bg-gray-100 focus-visible:outline-[#650dd4]"
               aria-expanded={mobileNavOpen}
+              aria-controls="mobile-navigation"
               aria-label="Open main menu"
             >
               <Menu className="h-5 w-5 text-gray-700" />

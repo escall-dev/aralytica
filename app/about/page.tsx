@@ -9,7 +9,10 @@ import { ContactCta } from "@/components/home/contact-cta";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "ARALytica is a research, monitoring, evaluation, and data analytics firm helping organizations turn evidence into practical action through methodological rigor and contextual understanding.",
+    "Learn about ARALytica's institutional mission, research approach, and the Filipino root 'Aral'—delivering rigorous empirical analysis and evidence-based development.",
+  alternates: {
+    canonical: "https://aralytica.com/about",
+  },
 };
 
 export default function AboutPage() {

@@ -5,9 +5,12 @@ import { HowWeEngage } from "@/components/services/how-we-engage";
 import { ContactCta } from "@/components/home/contact-cta";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Practice & Services",
   description:
     "Explore ARALytica's core practice areas: Research & Policy Analysis, Evaluation Support, and Capacity Building & Advisory for government agencies and development organizations.",
+  alternates: {
+    canonical: "https://aralytica.com/services",
+  },
 };
 
 export default function ServicesPage() {

@@ -54,7 +54,10 @@ export function MobileNav({ isOpen, onClose, links }: MobileNavProps) {
       />
 
       {/* Drawer */}
-      <div className="fixed inset-y-0 right-0 w-full max-w-xs bg-white shadow-xl flex flex-col z-10 animate-in slide-in-from-right duration-250 ease-out border-l border-gray-100">
+      <div
+        id="mobile-navigation"
+        className="fixed inset-y-0 right-0 w-full max-w-xs bg-white shadow-xl flex flex-col z-10 animate-in slide-in-from-right duration-250 ease-out border-l border-gray-100"
+      >
         <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
           <span className="text-sm font-semibold tracking-wider uppercase text-[#650dd4]">
             Navigation

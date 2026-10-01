@@ -108,8 +108,8 @@ export function Hero() {
                     </p>
                   </div>
                 </div>
-                <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-gray-100 text-gray-700">
-                  EST. 2026
+                <span className="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-[#f5edff] text-[#650dd4] border border-[#650dd4]/20">
+                  Core Model
                 </span>
               </div>
 

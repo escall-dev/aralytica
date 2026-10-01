@@ -4,9 +4,12 @@ import { InsightsFeed } from "@/components/insights/insights-feed";
 import { ContactCta } from "@/components/home/contact-cta";
 
 export const metadata: Metadata = {
-  title: "Insights",
+  title: "Insights & Briefs",
   description:
-    "Analytical commentaries, research briefs, and methodological insights from ARALytica's evaluation and policy research practitioners.",
+    "Analytical commentaries, research briefs, data insights, and methodological notes from ARALytica's evaluation and policy research practice.",
+  alternates: {
+    canonical: "https://aralytica.com/insights",
+  },
 };
 
 export default function InsightsPage() {

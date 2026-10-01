@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Connect with ARALytica to discuss study designs, independent program evaluations, econometric analytics, and institutional capacity advisory.",
+  alternates: {
+    canonical: "https://aralytica.com/contact",
+  },
 };
 
 export default function ContactPage() {

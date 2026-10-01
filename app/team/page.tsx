@@ -8,9 +8,12 @@ import { AssociatesNetwork } from "@/components/team/associates-network";
 import { ContactCta } from "@/components/home/contact-cta";
 
 export const metadata: Metadata = {
-  title: "Our Team",
+  title: "Our Team & Leadership",
   description:
-    "Meet ARALytica's leadership and technical team. Led by founder Joel Paulin Mendoza, our specialists combine expertise in evaluation, econometrics, and policy analysis.",
+    "Meet ARALytica's leadership and technical team. Led by founder Joel Paulin Mendoza, our specialists combine expertise in impact evaluation, econometrics, education policy, and governance diagnostics.",
+  alternates: {
+    canonical: "https://aralytica.com/team",
+  },
 };
 
 export default function TeamPage() {

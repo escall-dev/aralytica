@@ -5,9 +5,12 @@ import { PublicationsRepository } from "@/components/research/publications-repos
 import { ContactCta } from "@/components/home/contact-cta";
 
 export const metadata: Metadata = {
-  title: "Research",
+  title: "Research & Studies",
   description:
-    "Explore ARALytica's research and study focus areas: Education Systems, Governance Diagnostics, and Impact Evaluation Methodologies.",
+    "Explore ARALytica's research and study focus areas: Education Systems & Human Capital, Governance & Institutional Diagnostics, and Evaluation Methodologies & Data Systems.",
+  alternates: {
+    canonical: "https://aralytica.com/research",
+  },
 };
 
 export default function ResearchPage() {
