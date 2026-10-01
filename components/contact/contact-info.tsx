@@ -1,4 +1,5 @@
 import { Clock, Mail, FileText, CheckCircle2 } from "lucide-react";
+import { FacebookIcon } from "@/components/ui/icons";
 import { SITE_CONFIG } from "@/lib/data/site-config";
 
 export function ContactInfo() {
@@ -39,10 +40,40 @@ export function ContactInfo() {
             proposals:
           </p>
           <a
-            href={`mailto:${SITE_CONFIG.contactEmailPlaceholder}`}
+            href={`mailto:${SITE_CONFIG.contactEmail}`}
             className="inline-block px-3.5 py-2 rounded-lg bg-[#fafafa] border border-[#e5e7eb] text-xs font-mono font-semibold text-[#650dd4] hover:bg-[#f5edff] transition-colors focus-visible:outline-[#650dd4]"
           >
-            {SITE_CONFIG.contactEmailPlaceholder}
+            {SITE_CONFIG.contactEmail}
+          </a>
+        </div>
+
+        {/* Official Facebook Channel */}
+        <div className="p-6 rounded-2xl bg-white border border-[#e5e7eb] shadow-xs space-y-3">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-[#f5edff] text-[#650dd4]">
+              <FacebookIcon className="h-5 w-5" />
+            </div>
+            <div>
+              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-gray-500 block">
+                Social Channel
+              </span>
+              <span className="text-base font-bold text-[#191919]">
+                Official Facebook Page
+              </span>
+            </div>
+          </div>
+          <p className="text-sm text-[#5f5f5f]">
+            Connect with our research community and view public updates:
+          </p>
+          <a
+            href={SITE_CONFIG.facebookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit ARALytica on Facebook"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#fafafa] border border-[#e5e7eb] text-xs font-semibold text-[#650dd4] hover:bg-[#f5edff] transition-colors focus-visible:outline-[#650dd4]"
+          >
+            <FacebookIcon className="h-3.5 w-3.5" />
+            <span>Visit ARALytica on Facebook</span>
           </a>
         </div>
 

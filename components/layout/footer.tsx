@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Mail } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { FacebookIcon } from "@/components/ui/icons";
+import { SITE_CONFIG } from "@/lib/data/site-config";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -39,6 +42,28 @@ export function Footer() {
               with governments, development partners, and institutions to
               strengthen policies, programs, and decisions.
             </p>
+            <div className="pt-2 flex flex-col gap-2.5 text-xs text-[#5f5f5f]">
+              <a
+                href={`mailto:${SITE_CONFIG.contactEmail}`}
+                className="inline-flex items-center gap-2 hover:text-[#650dd4] transition-colors focus-visible:outline-[#650dd4] w-fit"
+              >
+                <Mail
+                  className="h-4 w-4 text-[#650dd4] shrink-0"
+                  aria-hidden="true"
+                />
+                <span className="font-mono">{SITE_CONFIG.contactEmail}</span>
+              </a>
+              <a
+                href={SITE_CONFIG.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit ARALytica on Facebook"
+                className="inline-flex items-center gap-2 hover:text-[#650dd4] transition-colors focus-visible:outline-[#650dd4] w-fit"
+              >
+                <FacebookIcon className="h-4 w-4 text-[#650dd4] shrink-0" />
+                <span>Visit ARALytica on Facebook</span>
+              </a>
+            </div>
           </div>
 
           {/* Navigation Links Column: Practice */}

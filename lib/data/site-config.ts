@@ -8,7 +8,8 @@ export const SITE_CONFIG = {
   tagline: "Evidence. Insight. Impact.",
   description:
     "ARALytica is a research, monitoring, evaluation, and data analytics firm that helps organizations turn evidence into practical action.",
-  contactEmailPlaceholder: "inquiries@aralytica.com",
+  contactEmail: "aralytica@gmail.com",
+  facebookUrl: "https://www.facebook.com/profile.php?id=61584477189118",
   navLinks: [
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },

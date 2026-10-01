@@ -96,6 +96,8 @@ const jsonLd = {
   slogan: "Evidence. Insight. Impact.",
   description:
     "ARALytica is a research, monitoring, evaluation, and data analytics firm helping organizations turn evidence into practical action.",
+  email: "aralytica@gmail.com",
+  sameAs: ["https://www.facebook.com/profile.php?id=61584477189118"],
 };
 
 export default function RootLayout({
